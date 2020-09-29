@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "demoCrud2"
+    }
+  },
+  "defaultProject": "demoCrud2",
+  "cli": {
+    "analytics": false
+  }
 }
