@@ -24,4 +24,12 @@ export class ProductService {
   getProduct(): Array<IProduct>{
     return this.products;
   }
+  getProductById(id: number): IProduct{
+    return this.products.find(item => item.id === id);
+  }
+  editProduct(id: number, product: IProduct): void {
+    let productTem = this.getProductById(id);
+    productTem = product;
+  }
+
 }
