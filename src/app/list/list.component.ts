@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IProduct} from '../iproduct';
+import {ProductService} from '../product.service';
 
 @Component({
   selector: 'app-list',
@@ -7,26 +8,12 @@ import {IProduct} from '../iproduct';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  products: Array<IProduct> = [
-    {
-      id: 1, name: 'Chucks Taylor 1970s', brand: 'Converse', description: 'like new'
-    },
-    {
-      id: 2, name: 'Ultraboost', brand: 'Adidas', description: 'Authentic'
-    },
-    {
-      id: 3, name: 'Jordan Air 1', brand: 'Nike', description: 'Secondhand'
-    },
-    {
-      id: 4, name: 'HunterStreet', brand: 'Bitis', description: 'Hypebeast'
-    },
-
-  ];
-
-  constructor() {
+  listProduct: Array<IProduct>;
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
+    this.listProduct = this.productService.getProduct();
   }
 
 }
