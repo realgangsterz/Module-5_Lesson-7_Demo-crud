@@ -5,6 +5,7 @@ import {IProduct} from './iproduct';
   providedIn: 'root'
 })
 export class ProductService {
+  countId = 10;
   private products: Array<IProduct> = [
     {
       id: 1, name: 'Chucks Taylor 1970s', brand: 'Converse', description: 'like new'
@@ -13,7 +14,7 @@ export class ProductService {
       id: 2, name: 'Ultraboost', brand: 'Adidas', description: 'Authentic'
     },
     {
-      id: 3, name: 'Jordan Air 1', brand: 'Nike', description: 'Secondhand'
+      id: 3, name: 'Jordan 1', brand: 'Nike', description: 'Secondhand'
     },
     {
       id: 4, name: 'HunterStreet', brand: 'Bitis', description: 'Hypebeast'
@@ -31,5 +32,17 @@ export class ProductService {
     let productTem = this.getProductById(id);
     productTem = product;
   }
-
+  saveProduct(product: IProduct): void {
+    this.countId++;
+    product.id = this.countId;
+    this.products.push(product);
+  }
+  deleteProduct(product: IProduct): void {
+    this.products.forEach((item, index) => {
+      if (item === product) {
+        this.products.splice(index, 1);
+      }
+    });
+    console.log(this.products);
+  }
 }

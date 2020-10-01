@@ -1,3 +1,4 @@
+<a [routerLink]="'/create'" >+ Add a new product</a>
 <table class="table table-striped">
   <thead class="thead-dark">
   <tr>
@@ -5,7 +6,7 @@
     <th scope="col">Name</th>
     <th scope="col">Brand</th>
     <th scope="col">Description</th>
-    <th scope="col">Edit</th>
+    <th scope="col" colspan="2">Function</th>
   </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
     <td>{{product.brand}}</td>
     <td>{{product.description}}</td>
     <td><button [routerLink]="'/edit/'+product.id">Edit</button></td>
+    <td><button [routerLink]="'/delete/'+product.id">Delete</button></td>
   </tr>
   </tbody>
 </table>
